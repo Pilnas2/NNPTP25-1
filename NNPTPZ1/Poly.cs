@@ -30,7 +30,7 @@ namespace NNPTPZ1
             Poly p = new Poly();
             for (int q = 1; q < Coe.Count; q++)
             {
-                p.Coe.Add(Coe[q].Multiply(new ComplexNumber() { Real = q }));
+                p.Coe.Add(Coe[q].Multiply(new ComplexNumber() { RealPart = q }));
             }
 
             return p;
@@ -43,7 +43,7 @@ namespace NNPTPZ1
         /// <returns>y</returns>
         public ComplexNumber Eval(double x)
         {
-            var y = Eval(new ComplexNumber() { Real = x, Imaginari = 0 });
+            var y = Eval(new ComplexNumber() { RealPart = x, ImaginaryPart = 0 });
             return y;
         }
 
@@ -54,7 +54,7 @@ namespace NNPTPZ1
         /// <returns>y</returns>
         public ComplexNumber Eval(ComplexNumber x)
         {
-            ComplexNumber s = ComplexNumber.Zero;
+            ComplexNumber s = ComplexNumber.ZeroValue;
             for (int i = 0; i < Coe.Count; i++)
             {
                 ComplexNumber coef = Coe[i];
